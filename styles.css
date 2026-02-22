@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --accent: #7A1C2E;
+    --muted: #b3b3b3;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.7;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--accent);
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+.subtitle {
+    color: var(--accent);
+    margin: 10px 0 20px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.dark-section {
+    background-color: #0d0d0d;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skill-tag {
+    background: #1e1e1e;
+    color: #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.2);
+}
+
+.skill-tag.primary {
+    background: rgba(230, 57, 70, 0.1);
+    color: #e63946;
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.skill-tag.primary:hover {
+    background: #e63946;
+    color: #fff;
+}
+
+/* --- TIMELINE EXPERIENCE --- */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    width: 2px;
+    background: #333;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid #000;
+    box-shadow: 0 0 0 2px #333;
+    z-index: 1;
+}
+
+.experience-card {
+    background: #141414;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+    transition: opacity 0.4s ease;
+    mix-blend-mode: overlay;
+}
+
+.bg-travel::before {
+    background-image: url('assets/travel_bg.png');
+}
+
+.bg-finance::before {
+    background-image: url('assets/data_banking_bg.png');
+}
+
+.bg-retail::before {
+    background-image: url('assets/retail_bg.png');
+}
+
+.experience-card.box-hover:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(230, 57, 70, 0.1);
+}
+
+.experience-card.box-hover:hover::before {
+    opacity: 0.35;
+}
+
+.experience-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.experience-card .location {
+    font-weight: 400;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.role-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.role-meta .role {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.role-meta .duration {
+    color: var(--muted);
+}
+
+.domain-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: #222;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--accent);
+}
+
+.mt-3 {
+    margin-top: 1.5rem;
+}
+
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.styled-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--accent);
+    color: var(--muted);
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #181818;
+    /* deep black shade, distinct from pure black */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #e63946;
+    /* your red */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-list li a:hover {
+    color: #fff;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* Subtle background glow effect using pseudo-element */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(230, 57, 70, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-greeting {
+    font-size: 1.5rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #bbb;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: #e63946;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #d62828;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border-color: #e63946;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(230, 57, 70, 0.1);
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- CONTACT SECTION --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: #141414;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-card.box-hover:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(230, 57, 70, 0.2);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    /* Removed break-word to prevent mid-word splitting, minmax grid will handle width */
+}
+
+/* -------------------- */
+.upside-down {
+    display: inline-block;
+    transform: rotate(180deg) !important;
+    transition: transform 0.3s ease;
+}
+
+.brand-gradient {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fff, #b0b0b0 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+}
+
+/* --- CYBERPUNK EASTER EGG --- */
+body.cyberpunk-mode {
+    --accent: #0ff;
+    --muted: #f0f;
+    background-color: #050510;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body.cyberpunk-mode .brand-gradient {
+    background: linear-gradient(90deg, #0ff, #f0f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+body.cyberpunk-mode .site-header {
+    background: #020205;
+    border-bottom: 1px solid #0ff;
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+}
+
+body.cyberpunk-mode .nav-list li a {
+    color: #f0f;
+}
+
+body.cyberpunk-mode .nav-list li a:hover {
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff;
+}
+
+body.cyberpunk-mode .experience-card,
+body.cyberpunk-mode .contact-card {
+    background: #020205;
+    border-color: #0ff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1), inset 0 0 10px rgba(255, 0, 255, 0.05);
+}
+
+body.cyberpunk-mode .experience-card.box-hover:hover,
+body.cyberpunk-mode .contact-card.box-hover:hover {
+    border-color: #f0f;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+body.cyberpunk-mode h1,
+body.cyberpunk-mode h2,
+body.cyberpunk-mode h3 {
+    text-shadow: 2px 2px 0px #f0f, -2px -2px 0px #0ff;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+body.cyberpunk-mode .skill-tag.primary {
+    background: rgba(0, 255, 255, 0.15);
+    color: #0ff;
+    border-color: #0ff;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+body.cyberpunk-mode .btn-primary {
+    background-color: #000;
+    color: #0ff;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+body.cyberpunk-mode .btn-primary:hover {
+    background-color: #0ff;
+    color: #000;
+    box-shadow: 0 0 20px #0ff;
+}
+
+body.cyberpunk-mode .timeline-marker {
+    background: #0ff;
+    box-shadow: 0 0 10px #0ff, 0 0 0 2px #333;
+    border-color: #f0f;
+}
+
+/* Glitch animation class */
+.glitch-anim {
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg);
+    }
+
+    20% {
+        transform: skew(-10deg);
+    }
+
+    40% {
+        transform: skew(10deg);
+    }
+
+    60% {
+        transform: skew(-5deg);
+    }
+
+    80% {
+        transform: skew(5deg);
+    }
+
+    100% {
+        transform: skew(0deg);
+    }
+}
