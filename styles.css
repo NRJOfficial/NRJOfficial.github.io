@@ -41,16 +41,135 @@ h1 {
     margin: 10px 0 20px;
 }
 
+/* Desktop Navigation */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
 nav a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
     transition: 0.3s;
+    font-size: 1rem;
 }
 
 nav a:hover {
     color: var(--accent);
 }
+
+#brandLogo {
+    position: absolute;
+    right: 0;
+}
+
+/* Hamburger Icon styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Hamburger Navigation */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        /* For Safari */
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+        margin: auto;
+    }
+
+    #brandLogo {
+        position: static;
+        z-index: 1000;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* The hidden dropdown menu */
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: top 0.4s ease;
+        top: -100vh;
+        /* Hidden offscreen by default */
+        z-index: 999;
+    }
+
+    .nav-list.active {
+        top: 0;
+        /* slide in from top */
+    }
+
+    .nav-list li {
+        margin: 0;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+}
+
+
 
 .section {
     padding: 80px 0;
