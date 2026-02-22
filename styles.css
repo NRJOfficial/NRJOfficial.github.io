@@ -655,6 +655,13 @@ body.cyberpunk-mode h3 {
     letter-spacing: 2px;
 }
 
+@media (max-width: 768px) {
+    body.cyberpunk-mode h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+}
+
 body.cyberpunk-mode .skill-tag.primary {
     background: rgba(0, 255, 255, 0.15);
     color: #0ff;
